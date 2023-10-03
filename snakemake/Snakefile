@@ -1,0 +1,22 @@
+
+# Parameters
+SAMPLES = ["sample1", "sample2", "sample3"]
+
+# The 'all' rule which defines the final target(s)
+rule all:
+    input:
+        expand("processed/{sample}.processed.txt", sample=SAMPLES)
+
+# Processing data with a Python script
+rule process_data:
+    input:
+        "raw/{sample}.txt"
+    output:
+        "processed/{sample}.processed.txt"
+    params:
+        threshold=0.5,
+        mode="complex"
+    conda:
+        "envs/processing_environment.yaml"
+    script:
+        "scripts/process_data.py"
