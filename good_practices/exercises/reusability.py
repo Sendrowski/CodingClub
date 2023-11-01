@@ -31,3 +31,5 @@ plt.axhline(y=average_data_set_2, color='r', linestyle='-', label=f"Average 2 = 
 plt.title(f"Variance for Data Set 2 = {variance_data_set_2:.2f}")
 plt.legend()
 plt.show()
+
+# TODO Can you think of a way to make the code more reusable?
